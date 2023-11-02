@@ -1,0 +1,21 @@
+name: Auto Versioning - Commit
+
+on:
+  pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
+
+jobs:
+  auto-versioning:
+    name: Auto Versioning Commit
+    runs-on: [self-hosted, ARM64]
+    permissions:
+      contents: write
+    container:
+      image: python:latest
+    steps:
+      - name: Checkout Current branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
