@@ -16,6 +16,9 @@ jobs:
           ref: ${{ github.head_ref }}
       - run: echo "hello world" >> README.md
 
+      - name: Update Ownership in Repository
+        run: git config --global --add safe.directory "/__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}"
+
       - name: Push new version
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
