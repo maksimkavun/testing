@@ -4,6 +4,7 @@ on: [push]
 jobs:
   auto-versioning:
     name: Auto Versioning Commit
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     container:
