@@ -17,7 +17,6 @@ jobs:
       - run: echo "hello world" >> README.md
 
       - name: Push new version
-        if: env.change-version-req-existing == 'true'
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: ${{ github.head_ref }}
